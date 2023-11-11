@@ -1,0 +1,40 @@
+const message = prompt('أدخل رسالة: ');
+
+function printCharacters(message) {
+    const regexNumber = /\d/;
+    const regexLetter = /[a-zA-Z]/;
+    const regexSpace = /\s/;
+
+    let listofNumber = [];
+    let listofChar = [];
+    let listofOperater = [];
+    let listofSpace = [];
+
+    for (let i = 0; i < message.length; i++) {
+        const char = message[i];
+        if (regexNumber.test(char)) {
+            listofNumber.push(char);
+        } else if (regexLetter.test(char)) {
+            listofChar.push(char);
+        } else if (regexSpace.test(char)) {
+            listofSpace.push(char);
+        } else {
+            listofOperater.push(char);
+        }
+    }
+
+    function printCategories(list, label) {
+        if (list.length > 0) {
+            for (let i = 0; i < list.length; i++) {
+                console.log(list[i] + " " + label);
+            }
+        }
+    }
+
+    printCategories(listofChar, "Char");
+    printCategories(listofNumber, "Number");
+    printCategories(listofOperater, "Operater");
+    printCategories(listofSpace, "Space");
+}
+
+printCharacters(message);

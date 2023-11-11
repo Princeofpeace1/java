@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void PrintCharacters(string message)
+        {
+            foreach (char c in message)
+            {
+                if (char.IsDigit(c))
+                {
+                    Console.WriteLine(c + " Number");
+                }
+                else if (char.IsLetter(c))
+                {
+                    Console.WriteLine(c + " Char");
+                }
+                else if (char.IsWhiteSpace(c))
+                {
+                    Console.WriteLine(c + " Space");
+                }
+                else
+                {
+                    Console.WriteLine(c + " Operater");
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a Massage: ");
+            string message = Console.ReadLine();
+
+            PrintCharacters(message);
+
+            Console.ReadKey();
+        }
+    }
+}
