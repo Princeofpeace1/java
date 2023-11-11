@@ -1,0 +1,33 @@
+const message = prompt('أدخل رسالة: ');
+const regexNumber = /\d/;
+const regexLetter = /[a-zA-Z]/;
+const regexSpace = /\s/;
+let listofNumber = [];
+let listofString = [];
+let listofOperater = [];
+let listofSpace = [];
+
+for (let i = 0; i < message.length; i++) {
+    const char = message[i];
+    if (regexNumber.test(char)) {
+        listofNumber.push(char);
+    } else if (regexLetter.test(char)) {
+        listofString.push(char);
+    } else if (regexSpace.test(char)) {
+        listofSpace.push(char);
+    } else {
+        listofOperater.push(char);
+    }
+}
+
+function printCategories(list, label) {
+    if (list.length > 0) {
+        const joinedList = list.join('');
+        console.log(joinedList + " " + label);
+    }
+}
+
+printCategories(listofString, "نص");
+printCategories(listofNumber, "عدد صحيح");
+printCategories(listofOperater, "عامل");
+printCategories(listofSpace, "فراغ");
